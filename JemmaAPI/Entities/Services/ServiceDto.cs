@@ -1,6 +1,8 @@
+using JemmaAPI.Entities.Base;
+
 namespace JemmaAPI.Entities.Services;
 
-public class ServiceDto
+public class ServiceDto : BaseDto
 {
-    
+    public string Name { get; set; }
 }
