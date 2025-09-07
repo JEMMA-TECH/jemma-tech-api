@@ -9,9 +9,9 @@ using JemmaAPI.Entities.Users;
 
 namespace JemmaAPI.Automapper;
 
-public class Automapper : Profile
+public class JemmaMapper : Profile
 {
-    public Automapper()
+    public JemmaMapper()
     {
         #region Companies
 
