@@ -17,14 +17,14 @@ public class CustomerController(ICustomerRepository repository) : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IResult> CreateCustomer(CreateCustomerRequest request)
+    public async Task<IResult> CreateCustomer([FromBody] CreateCustomerRequest request)
     {
         return await repository.CreateCustomer(request);
     }
     
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<CustomerDto>))]
-    public async Task<IResult> GetCustomers(int page, int pageSize, string search)
+    public async Task<IResult> GetCustomers([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = null)
     {
         return await repository.GetCustomers(page, pageSize, search);
     }

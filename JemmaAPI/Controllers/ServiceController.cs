@@ -14,7 +14,7 @@ public class ServiceController(IServiceRepository repository) : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IResult> CreateService(CreateServiceRequest request)
+    public async Task<IResult> CreateService([FromBody] CreateServiceRequest request)
     {
         return await repository.CreateService(request);
     }

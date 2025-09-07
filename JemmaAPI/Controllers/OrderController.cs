@@ -12,7 +12,10 @@ public class OrderController(IOrderRepository repository) : ControllerBase
 {
 
     [HttpPost]
-    public async Task<IResult> CreateOrder(CreateOrderRequest request)
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public async Task<IResult> CreateOrder([FromBody] CreateOrderRequest request)
     {
         return await repository.CreateOrder(request);
     }

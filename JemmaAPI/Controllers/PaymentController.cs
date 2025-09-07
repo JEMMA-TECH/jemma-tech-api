@@ -13,7 +13,7 @@ public class PaymentController(IPaymentRepository repository) : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IResult> CreatePayment(CreatePaymentRequest request)
+    public async Task<IResult> CreatePayment([FromBody] CreatePaymentRequest request)
     {
         return await repository.CreatePayment(request);
     }
