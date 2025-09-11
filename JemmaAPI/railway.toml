@@ -1,0 +1,9 @@
+[build]
+builder="DOCKERFILE"
+dockerfilePath="./JemmaAPI/Dockerfile"
+
+[deploy]
+startCommand="./JemmaAPI"
+restartPolicyType="ALWAYS"
+healthcheckPath="/health"
+restartPolicyMaxRetries="always"
