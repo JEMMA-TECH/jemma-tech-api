@@ -1,9 +1,13 @@
 using JemmaAPI.Entities.Payments;
 using JemmaAPI.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JemmaAPI.Controllers;
 
+[ApiController]
+[Route("api/v{version:apiVersion}/payments")]
+[Authorize]
 public class PaymentController(IPaymentRepository repository) : ControllerBase
 {
     /// <summary>

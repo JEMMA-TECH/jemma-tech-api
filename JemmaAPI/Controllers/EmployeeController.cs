@@ -1,9 +1,12 @@
 using JemmaAPI.Entities.Users;
 using JemmaAPI.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JemmaAPI.Controllers;
-
+[ApiController]
+[Route("api/v{version:apiVersion}/employees")]
+[Authorize]
 public class EmployeeController(IEmployeeRepository repository) : ControllerBase
 {
     
